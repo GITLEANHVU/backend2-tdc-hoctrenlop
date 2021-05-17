@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Company;
 
@@ -14,9 +15,10 @@ class CompanyController extends Controller
 {
     public function getCompanies(Request $request) {
 
-        $per_page = $request->input('per_page');
+        $categories = Category::all();
 
-        
+        // dd($categories);
+        $per_page = $request->input('per_page');
         // //is null
         // if (empty($per_page)) {
         //     $per_page = 10;
@@ -29,7 +31,8 @@ class CompanyController extends Controller
         
         $obj = new Company();
         $companies = $obj->paginate($per_page);
-
-        return view('companies', ['companies' => $companies]);
+        return view('companies', ['companies' => $companies, 'categories' => $categories]);
     }
+
+
 }

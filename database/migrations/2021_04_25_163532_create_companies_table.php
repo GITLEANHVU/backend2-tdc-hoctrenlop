@@ -20,6 +20,9 @@ class CreateCompaniesTable extends Migration
             $table->string('company_address', 500);
             $table->string('company_code', 55);
             $table->string('company_phone', 55);
+
+            $table->integer('category_id');
+            $table->foreign('category_id')->references('category_id')->on('categories');
             $table->timestamps();
         });
     }

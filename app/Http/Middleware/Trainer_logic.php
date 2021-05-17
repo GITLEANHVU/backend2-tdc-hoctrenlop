@@ -18,7 +18,7 @@ class Trainer_logic
     {
 
         $per_page = $request->input('per_page');
-        
+        $name = $request->get('name');
 
         //is null
         if (empty($per_page)) {
