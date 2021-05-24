@@ -19,7 +19,6 @@
     <!-- Custom styles for this template -->
 
 </head>
-
 <body>
 
     <div>
@@ -41,12 +40,12 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
+                            Categories
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach ($categories as $category)
                                 <a class="dropdown-item" href="#{{ $category->category_id }}">
-                                    {{ $category->category_type }}
+                                    {{ $category->category_name }}
                                 </a>
                                 <div class="dropdown-divider"></div>
                             @endforeach

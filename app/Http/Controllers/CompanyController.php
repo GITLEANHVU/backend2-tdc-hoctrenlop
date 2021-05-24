@@ -15,22 +15,15 @@ class CompanyController extends Controller
 {
     public function getCompanies(Request $request) {
 
+        //
         $categories = Category::all();
-
-        // dd($categories);
-        $per_page = $request->input('per_page');
-        // //is null
-        // if (empty($per_page)) {
-        //     $per_page = 10;
-        // }
-
-        // //is string
-        // if (is_string($per_page)) {
-        //     $per_page = 10;
-        // }
         
+        //
+        $per_page = $request->input('per_page');
         $obj = new Company();
         $companies = $obj->paginate($per_page);
+
+        //
         return view('companies', ['companies' => $companies, 'categories' => $categories]);
     }
 

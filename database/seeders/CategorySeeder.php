@@ -17,7 +17,7 @@ class CategorySeeder extends Seeder
     {
         for ($i = 0; $i < 5; $i++) {
             DB::table('categories')->insert([
-                'category_type' => "LAV-". Str::random(6) . " - type: " . $i
+                'category_name' => "LAV-". Str::random(6) . " - type: " . $i
             ]);
         }
     }
