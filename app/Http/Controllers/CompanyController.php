@@ -23,6 +23,8 @@ class CompanyController extends Controller
         $obj = new Company();
         $companies = $obj->paginate($per_page);
 
+        // $test = $obj->find(1);
+        // dd($test->toArray());
         //
         return view('companies', ['companies' => $companies, 'categories' => $categories]);
     }
