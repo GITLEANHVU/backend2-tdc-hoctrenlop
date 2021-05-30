@@ -8,9 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+    public $primaryKey = "category_id";
     protected $table = 'categories';
 
-    public function categories() {
-        return $this->morphMany(Company::class, 'company_table');
+    function companies()
+    {
+        return $this->hasMany("App\Models\Company", "category_id");
+//        return $this->morphMany(, 'category');
     }
+    
 }

@@ -15,9 +15,10 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 5; $i++) {
+        $categories_data = ["Mạng máy tính", "Kiểm thử phần mềm", "Phát triển ứng dụng trên web", "Phát triển ứng dụng trên mobile"];
+        for ($i = 0; $i < count($categories_data); $i++) {
             DB::table('categories')->insert([
-                'category_name' => "LAV-". Str::random(6) . " - type: " . $i
+                'category_name' => $categories_data[$i]
             ]);
         }
     }
