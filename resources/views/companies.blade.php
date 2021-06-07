@@ -23,7 +23,6 @@
                 <tbody>
 
                     @foreach ($companies as $company)
-
                         <tr>
                             <th scope="row">{!! $company->company_id !!}</th>
                             <td>{!! $company->company_name !!}</td>
@@ -33,11 +32,8 @@
                             <td>{!! @$company->trainer['trainer_name'] !!}</td>
                         </tr>
                     @endforeach
-
                 </tbody>
             </table>
             {!! $companies->render() !!}
         </div>
-
-
     @endsection
