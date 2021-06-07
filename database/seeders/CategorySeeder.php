@@ -18,7 +18,8 @@ class CategorySeeder extends Seeder
         $categories_data = ["Mạng máy tính", "Kiểm thử phần mềm", "Phát triển ứng dụng trên web", "Phát triển ứng dụng trên mobile"];
         for ($i = 0; $i < count($categories_data); $i++) {
             DB::table('categories')->insert([
-                'category_name' => $categories_data[$i]
+                'category_name' => $categories_data[$i],
+                'status' => 1,
             ]);
         }
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCompaniesTable extends Migration
+class Companies extends Migration
 {
     /**
      * Run the migrations.
@@ -20,10 +20,11 @@ class CreateCompaniesTable extends Migration
             $table->string('company_address', 500);
             $table->string('company_code', 55);
             $table->string('company_phone', 55);
-
+            $table->integer('status');
             $table->integer('category_id');
-            $table->foreign('category_id')->references('category_id')->on('categories');
+            // $table->foreign('category_id')->references('category_id')->on('categories');
             $table->timestamps();
+            $table->softDeletesTz($column = 'deleted_at', $precision = 0);
         });
     }
 
@@ -34,6 +35,6 @@ class CreateCompaniesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('companies');
+        //
     }
 }
