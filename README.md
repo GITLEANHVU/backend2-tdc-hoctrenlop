@@ -72,3 +72,7 @@
 3. Test SQL
 
 
+-- week 12
+- [ ] kernel.php -> Http
+- [ ] app.php -> config
+- [ ] security
