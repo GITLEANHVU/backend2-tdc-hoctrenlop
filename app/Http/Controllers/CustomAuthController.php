@@ -24,16 +24,22 @@ class CustomAuthController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-
+        
         $credentials = [
             "user_email" => $request->email,
-            "user_password" => $request->password
+            "password" => $request->password
         ];
-        
+
+        /**
+         * lúc này chưa tìm ra cái attemp ở đâu cả, nên ĐỔI TÊN để test!
+         * doi ten thanh Auth::leanhvu -> bi loi va phat hien co SessionGuard
+         * tìm thấy attempt trong SessionGuard.php
+         */
         if (Auth::attempt($credentials)) {
             return redirect()->intended('dashboard')
                 ->withSuccess('Signed in');
         }
+
         return redirect("login")->withSuccess('Login details are not valid');
     }
 
@@ -61,6 +67,9 @@ class CustomAuthController extends Controller
     public function dashboard()
     {
         if (Auth::check()) {
+            // lấy user.
+
+            // đưa user vào dashboard để hiển thị
             return view('dashboard');
         }
 
