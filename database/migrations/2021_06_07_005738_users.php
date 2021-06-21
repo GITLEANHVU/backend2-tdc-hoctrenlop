@@ -14,16 +14,16 @@ class Users extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email', 250);
+            $table->id("user_id");
+            $table->string('user_name');
+            $table->string('user_email', 250);
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->integer('status');
+            $table->string('user_password');
+            $table->integer('status')->nullable();
 
-            $table->integer('type_id');
+            $table->integer('type_id')->nullable();
             // $table->foreign('type_id')->references('type_id')->on('type');
-            $table->integer('group_id');
+            $table->integer('group_id')->nullable();
             // $table->foreign('group_id')->references('group_id')->on('group_permissions');
             $table->rememberToken();
             $table->timestamps();
