@@ -175,6 +175,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /**
+         * Nhom E - lav
+         */
+        Foostart\Acl\Authentication\AuthenticationServiceProvider::class,
+        Foostart\Category\CategoryServiceProvider::class,
     ],
 
     /*
